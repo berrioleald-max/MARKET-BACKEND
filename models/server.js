@@ -14,16 +14,34 @@ import 'dotenv/config';
     }
     //Segundo Metodo de mi Clase Server 
     rutas() {
-        this.app.get('/', (req, res) => {
+        this.app.get('/api', (req, res) => {
             res.send({
-                message: 'Hola mundo de mi servidor'
+                message: 'GET - Server'
+            })
+        });
+
+        this.app.post('/api', (req, res) => {
+            res.send({
+                message: 'POST - Server'
+            })
+        });
+
+        this.app.put('/api', (req, res) => {
+            res.send({
+                message: 'PUT - Server'
+            })
+        });
+
+        this.app.delete('/api', (req, res) => {
+            res.send({
+                message: 'DELETE - Server'
             })
         });
     }
-
     //Metodo 3 de mi Clase Server
     middlewares() {
         this.app.use(express.static('public'));
+        this.app.use(express.json());
     }
 
     //Primer Metodo de mi Clase Server
